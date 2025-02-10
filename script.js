@@ -9,43 +9,57 @@ function handleResponsiveLayout() {
     const screenWidth = window.innerWidth;
     
     // Elements to adjust
+    const nav = document.querySelector('nav');
+    const logo = document.querySelector('.logo img');
+    const navLinks = document.querySelector('.nav-links');
     const titleContainer = document.querySelector('.title-container');
     const quoteContainer = document.querySelector('.quote-container');
     const offerSection = document.querySelector('.offer-section');
     
     if (screenWidth <= 768) {
-        // Mobile layout adjustments
+        // Navbar adjustments for mobile
+        nav.style.padding = '0.5rem 1rem';
+        logo.style.height = '50px'; // Reduce logo size
+        navLinks.style.gap = '1rem'; // Reduce gap between nav items
         
-        // Title section adjustments
+        // Make buttons smaller
+        document.querySelectorAll('.nav-links button').forEach(button => {
+            button.style.padding = '0.3rem 0.8rem';
+            button.style.fontSize = '0.9rem';
+        });
+        
+        // Other mobile layout adjustments
         titleContainer.style.marginTop = '100px';
         titleContainer.style.width = '90%';
         titleContainer.style.margin = '100px auto 30px auto';
         
-        // Quote container adjustments
         quoteContainer.style.position = 'relative';
         quoteContainer.style.width = '90%';
         quoteContainer.style.margin = '30px auto';
         quoteContainer.style.height = 'auto';
         
-        // Offer section adjustments
         offerSection.style.position = 'relative';
         offerSection.style.top = 'auto';
         offerSection.style.right = 'auto';
         offerSection.style.width = '90%';
         offerSection.style.margin = '30px auto';
         
-        // Adjust images in offer section
         const offerImages = document.querySelector('.offer-images');
         offerImages.style.flexDirection = 'column';
         offerImages.style.alignItems = 'center';
         
-        // Adjust font sizes for mobile
         document.querySelector('.main-title').style.fontSize = '32px';
         document.querySelector('.subtitle').style.fontSize = '24px';
         document.querySelector('.quote').style.fontSize = '28px';
         document.querySelector('.offer-title').style.fontSize = '32px';
     } else {
         // Reset to desktop layout
+        nav.style = '';
+        logo.style = '';
+        navLinks.style = '';
+        document.querySelectorAll('.nav-links button').forEach(button => {
+            button.style = '';
+        });
         titleContainer.style = '';
         quoteContainer.style = '';
         offerSection.style = '';
